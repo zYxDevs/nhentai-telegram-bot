@@ -1,31 +1,36 @@
 import { Schema, model, Document } from 'mongoose'
 
-export interface MangaSchema {
-	id:                   number
-	title:                string
-	description?:         string
-	tags?:                string[]
-	pages:                number
-	page0?:               string
-	thumbnail?:           string
-	telegraph_url?:       string
-	telegraph_fixed_url?: string
-	fixed_pages:          string[]
-	createdAt?:           Date
-	updatedAt?:           Date
+export interface MangaI {
+	id: string; // <source>_<id>
+	title: string;
+	description: string;
+	tags: string[];
+	pages: number;
+	thumbnail: string;
+	previews: {
+		telegraph_url: string;
+	};
+	createdAt?: Date;
+	updatedAt?: Date;
 }
-const mangaSchema = new Schema({
-	id:                  { type: Number, required: true },
-	title:               String,
-	description:         String,
-	tags:                [String],
-	pages:               Number,
-	page0:               String,
-	thumbnail:           String,
-	telegraph_url:       String,
-	telegraph_fixed_url: String,
-	fixed_pages:         [String],
-}, { timestamps: true })
+export const mangaSchema: Schema<MangaI> = new Schema(
+	{
+		id: { type: String, required: true }, // <source>_<id>
+		title: { type: String, required: true },
+		description: { type: String, required: true },
+		tags: { type: [String], required: true },
+		pages: { type: Number, required: true },
+		thumbnail: { type: String, required: true },
+		previews: {
+			type: {
+				telegraph_url: { type: String, required: true },
+			},
+			required: true,
+		},
+	},
+	{ timestamps: true }
+)
 
-export type Manga = MangaSchema & Document<any, any, MangaSchema>
-export default model<MangaSchema>('Manga', mangaSchema)
+// eslint-disable-next-line
+export type Manga = MangaI & Document<any, any, MangaI>;
+export default model<MangaI>('Manga', mangaSchema)
