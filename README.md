@@ -47,6 +47,30 @@ bun install
 bun run preview
 ```
 
+## Proxy Support (Optional)
+
+All manga sources support optional proxy via [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) to bypass Cloudflare protection.
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `SOURCE_FLARESOLVERR_URL` | FlareSolverr endpoint (e.g., `http://127.0.0.1:8191`). Falls back to `FLARESOLVERR_URL`. |
+| `SOURCE_PROXY_URL` | Optional upstream proxy for FlareSolverr (e.g., `http://127.0.0.1:8888`). |
+| `SOURCE_MAX_TIMEOUT_MS` | Max timeout for FlareSolverr requests (default: `60000`). |
+
+### Running with FlareSolverr
+
+```bash
+# Start FlareSolverr (Docker)
+docker run -d --name flaresolverr -p 8191:8191 ghcr.io/flaresolverr/flaresolverr:latest
+
+# Run the bot with proxy enabled
+SOURCE_FLARESOLVERR_URL=http://127.0.0.1:8191 bun run preview
+```
+
+Without these variables set, sources make direct HTTP requests (no proxy).
+
 On replit.com you may need to run `npm install node && npm install && npm run build` before starting for the first time
 
 [![Run on replit.com](https://replit.com/badge/github/sleroq/nhentai-telegram-bot)](https://replit.com/github/sleroq/nhentai-telegram-bot)
@@ -69,7 +93,7 @@ On replit.com you may need to run `npm install node && npm install && npm run bu
 	- [ ] Indonesian
 	- [ ] German
 - [ ] add actual logging
-- [ ] proxy
+- [x] proxy support via FlareSolverr for all sources
 - [ ] switch from [telegraf](https://github.com/telegraf/telegraf) to [grammy](https://grammy.dev/)
 - [x] typescript!
     - [x] inline search
