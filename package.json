@@ -69,6 +69,7 @@
     "html-escaper": "^3.0.3",
     "i18next": "^25.8.13",
     "isomorphic-fetch": "^3.0.0",
+    "nhentai": "^4.0.0",
     "pino": "^10.3.1",
     "tough-cookie": "^6.0.0"
   }
