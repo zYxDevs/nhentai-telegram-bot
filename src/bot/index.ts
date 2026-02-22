@@ -1,6 +1,9 @@
 import { Bot, BotError } from 'grammy'
 import type { Logger } from 'pino'
 import handleIDs from './cmds/by-ids.js'
+import help from './cmds/help.js'
+import settings from './cmds/settings.js'
+import zip from './cmds/zip.js'
 import Werror from '../lib/error.js'
 import search from './search.js'
 import opener from './buttons/open.js'
@@ -15,7 +18,10 @@ export default async function startBot(token: string, logger: Logger) {
 
 	bot.command('start', ctx => {
 		let message = 'Welcome!\n'
-		message += '/rand - random doijin\n'
+		message += '/rand - random doujin\n'
+		message += '/settings - preferences\n'
+		message += '/zip <id> - download pages as zip\n'
+		message += '/help - all commands\n'
 		message += '<code>123123</code> - doujin by id\n\n'
 		message += '<a href="https://github.com/sleroq/nhentai-telegram-bot">GitHub</a> - help with development\n'
 
@@ -53,6 +59,9 @@ export default async function startBot(token: string, logger: Logger) {
 	bot.use(search)
 	bot.use(opener)
 	bot.use(rand)
+	bot.use(help)
+	bot.use(settings)
+	bot.use(zip)
 
 	bot.on('message', async (ctx) => {
 		if (ctx.msg.via_bot?.id === bot.botInfo.id) return
@@ -75,49 +84,3 @@ export default async function startBot(token: string, logger: Logger) {
 
 	void bot.start()
 }
-
-// import { Telegraf } from 'telegraf'
-//
-// import Werror from '../lib/error.ts'
-//
-// import saveAndGetUser from '../db/save_and_get_user'
-// import i18n from '../lib/i18n'
-//
-// // Import all commands
-// import callbackHandler from './callback_handler'
-// import makeRandom from './commands/random'
-// import textHandler from './text_handler'
-// import inlineSearch from './inline_search/index'
-// import help from './commands/help'
-// import settings from './commands/settings/settings'
-// import dlZip from './commands/dlzip'
-//
-// export default async function setupBot(token: string) {
-// 	const bot = new Telegraf(token)
-// 	bot.catch((error) => {
-// 		console.error(error)
-// 	})
-
-// 	bot.help(async (ctx) => {
-// 		try {
-// 			await help(ctx)
-// 		} catch (error) {
-// 			throw new Werror(error, 'Handling \'/help\' command')
-// 		}
-// 	})
-//
-// 	bot.command('settings', async (ctx) => {
-// 		try {
-// 			await settings(ctx)
-// 		} catch (error) {
-// 			throw new Werror(error, 'Handling settings')
-// 		}
-// 	})
-//
-// 	bot.command('zip', async (ctx) => {
-// 		try {
-// 			await dlZip(ctx)
-// 		} catch (error) {
-// 			throw new Werror(error, 'Handling \'/zip\' command')
-// 		}
-// 	})
