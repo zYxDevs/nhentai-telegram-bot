@@ -4,3 +4,4 @@ package-lock.json
 /built/
 /built/*
 /.idea/
+/data/

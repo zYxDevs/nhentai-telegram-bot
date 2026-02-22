@@ -12,15 +12,10 @@
       "description": "Your bot token from https://t.me/BotFather",
       "required": true
     },
-    "DATABASE_URL": {
-      "description": "URL to connect to your database https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/",
-      "value": "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<db-name>?retryWrites=true&w=majority",
+    "SQLITE_PATH": {
+      "description": "Path to SQLite database file",
+      "value": "./data/bot.sqlite",
       "required": true
-    },
-    "DATABASE2_URL": {
-      "description": "URL to your second database if you want to store users separately",
-      "value": "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<db-name>?retryWrites=true&w=majority",
-      "required": false
     },
     "IGNORED_TAGS": {
       "description": "Tags that will be ignored by default for all users, divided by ', '",

@@ -37,7 +37,7 @@
 ### Pre-reqs for deploying this project to Heroku or replit.com:
 
 - Create [Heroku](https://signup.heroku.com/) or [Replit](https://replit.com/signup) account (free)
-- Create cluster on [Mongo database](https://docs.atlas.mongodb.com/getting-started/) (free)
+- Configure a writable path for the SQLite database file (default: `./data/bot.sqlite`)
 - Get bot token from [@BotFather](https://t.me/BotFather)
 
 On replit.com you may need to run `npm install node && npm install && npm run build` before starting for the first time

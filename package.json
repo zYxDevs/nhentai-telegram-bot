@@ -43,6 +43,7 @@
     "@sindresorhus/tsconfig": "^8.1.0",
     "@types/adm-zip": "^0.5.7",
     "@types/archiver": "^7.0.0",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/html-escaper": "^3.0.4",
@@ -56,16 +57,17 @@
   },
   "dependencies": {
     "adm-zip": "^0.5.16",
+    "better-sqlite3": "^12.4.1",
     "cheerio": "^1.2.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.44.6",
     "express": "^5.2.1",
     "got": "^14.6.6",
     "grammy": "^1.40.0",
     "html-escaper": "^3.0.3",
     "i18next": "^25.8.13",
     "isomorphic-fetch": "^3.0.0",
-    "mongoose": "^9.2.1",
     "pino": "^10.3.1",
     "tough-cookie": "^6.0.0"
   }

@@ -1,4 +1,7 @@
-import MangaModel, { Manga, MangaI } from '../models/manga.model.js'
+import { eq } from 'drizzle-orm'
+import { db } from '../db/client.js'
+import { mangaTable } from '../db/schema.js'
+import { Manga } from '../models/manga.model.js'
 import Werror from './error.js'
 import Doujin from '../sources/doujin.js'
 import HentaiAPI from '../sources/index.js'
@@ -11,7 +14,13 @@ export default async function getDoujin(id: string) {
 
 	let doujin: Manga | null
 	try {
-		doujin = await MangaModel.findOne({ id: databaseID })
+		const cachedManga = await db
+			.select()
+			.from(mangaTable)
+			.where(eq(mangaTable.id, databaseID))
+			.limit(1)
+
+		doujin = cachedManga[0] ? mapMangaRow(cachedManga[0]) : null
 	} catch (err) {
 		throw new Werror(err, 'Error getting doujin from database')
 	}
@@ -39,25 +48,79 @@ export default async function getDoujin(id: string) {
 }
 
 export async function saveDoujin(doujin: Doujin, databaseID: string, previewURL: string) {
-	const manga = new MangaModel<MangaI>({
+	const now = Math.floor(Date.now() / 1000)
+	const description = generateDescription(doujin, previewURL.toString())
+
+	try {
+		await db
+			.insert(mangaTable)
+			.values({
+				id: databaseID,
+				title: doujin.title.translated.pretty,
+				tags: JSON.stringify(doujin.details.tags.map((tag) => tag.name)),
+				pages: doujin.details.pages,
+				thumbnail: doujin.thumbnail,
+				description,
+				previewTelegraphUrl: previewURL.toString(),
+				createdAt: now,
+				updatedAt: now,
+			})
+			.onConflictDoUpdate({
+				target: mangaTable.id,
+				set: {
+					title: doujin.title.translated.pretty,
+					tags: JSON.stringify(doujin.details.tags.map((tag) => tag.name)),
+					pages: doujin.details.pages,
+					thumbnail: doujin.thumbnail,
+					description,
+					previewTelegraphUrl: previewURL.toString(),
+					updatedAt: now,
+				},
+			})
+	} catch (err) {
+		throw new Werror(err, 'Error saving doujin to database')
+	}
+
+	return {
 		id: databaseID,
 		title: doujin.title.translated.pretty,
 		tags: doujin.details.tags.map((tag) => tag.name),
 		pages: doujin.details.pages,
 		thumbnail: doujin.thumbnail,
-		description: generateDescription(doujin, previewURL.toString()),
+		description,
 		previews: {
 			telegraph_url: previewURL.toString(),
 		},
-	})
+		createdAt: new Date(now * 1000),
+		updatedAt: new Date(now * 1000),
+	}
+}
 
+function mapMangaRow(row: typeof mangaTable.$inferSelect): Manga {
+	return {
+		id: row.id,
+		title: row.title,
+		description: row.description,
+		tags: parseTags(row.tags),
+		pages: row.pages,
+		thumbnail: row.thumbnail,
+		previews: {
+			telegraph_url: row.previewTelegraphUrl,
+		},
+		createdAt: new Date(row.createdAt * 1000),
+		updatedAt: new Date(row.updatedAt * 1000),
+	}
+}
+
+function parseTags(tags: string) {
 	try {
-		await manga.save()
-	} catch (err) {
-		throw new Werror(err, 'Error saving doujin to database')
+		const parsedTags = JSON.parse(tags)
+		if (Array.isArray(parsedTags)) return parsedTags.filter((tag) => typeof tag === 'string')
+	} catch {
+		return []
 	}
 
-	return manga
+	return []
 }
 
 function generateDescription(doujin: Doujin, previewURL: string) {
