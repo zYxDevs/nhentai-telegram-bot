@@ -38,8 +38,12 @@ site_name: "E-Hentai"
 # Set src from data-src for all images
 @set_attr(src, @data-src): //img[@data-src]
 
-# Convert thumbnail URLs to full resolution (remove 't' before .jpg)
+# Convert thumbnail URLs to full resolution (remove 't' before extension)
 @replace("t.jpg$", ".jpg"): //img/@src
+@replace("t.png$", ".png"): //img/@src
+@replace("t.gif$", ".gif"): //img/@src
+@replace("t.webp$", ".webp"): //img/@src
+@replace("t.jpeg$", ".jpeg"): //img/@src
 
 #####   Unwrap images from links #####
 
