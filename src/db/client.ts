@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import Database from 'better-sqlite3'
-import { drizzle } from 'drizzle-orm/better-sqlite3'
+import { Database } from 'bun:sqlite'
+import { drizzle } from 'drizzle-orm/bun-sqlite'
 import * as schema from './schema.js'
 
 const sqlitePath = process.env['SQLITE_PATH'] ?? './data/bot.sqlite'
@@ -11,10 +11,10 @@ fs.mkdirSync(path.dirname(resolvedSqlitePath), { recursive: true })
 
 const sqlite = new Database(resolvedSqlitePath)
 
-sqlite.pragma('journal_mode = WAL')
-sqlite.pragma('foreign_keys = ON')
+sqlite.run('PRAGMA journal_mode = WAL')
+sqlite.run('PRAGMA foreign_keys = ON')
 
-export const db = drizzle(sqlite, { schema })
+export const db = drizzle({ client: sqlite, schema })
 
 export async function ensureDatabaseReady() {
 	sqlite.exec(`
