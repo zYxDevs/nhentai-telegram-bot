@@ -1,0 +1,945 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "nhentai-telegram-bot",
+      "dependencies": {
+        "adm-zip": "^0.5.16",
+        "better-sqlite3": "^12.4.1",
+        "cheerio": "^1.2.0",
+        "cors": "^2.8.6",
+        "dotenv": "^17.3.1",
+        "drizzle-orm": "^0.44.6",
+        "express": "^5.2.1",
+        "got": "^14.6.6",
+        "grammy": "^1.40.0",
+        "html-escaper": "^3.0.3",
+        "i18next": "^25.8.13",
+        "isomorphic-fetch": "^3.0.0",
+        "pino": "^10.3.1",
+        "tough-cookie": "^6.0.0",
+      },
+      "devDependencies": {
+        "@ava/typescript": "^6.0.0",
+        "@sindresorhus/tsconfig": "^8.1.0",
+        "@types/adm-zip": "^0.5.7",
+        "@types/archiver": "^7.0.0",
+        "@types/better-sqlite3": "^7.6.13",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "@types/html-escaper": "^3.0.4",
+        "@types/i18n": "^0.13.12",
+        "@types/tough-cookie": "^4.0.5",
+        "@typescript-eslint/eslint-plugin": "^8.56.0",
+        "@typescript-eslint/parser": "^8.56.0",
+        "ava": "^6.4.1",
+        "eslint": "^10.0.1",
+        "typescript": "^5.9.3",
+      },
+    },
+  },
+  "packages": {
+    "@ava/typescript": ["@ava/typescript@https://registry.npmjs.org/@ava/typescript/-/typescript-6.0.0.tgz", { "dependencies": { "escape-string-regexp": "^5.0.0", "execa": "^9.6.0" } }],
+
+    "@babel/runtime": ["@babel/runtime@https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.6.tgz", {}],
+
+    "@eslint-community/eslint-utils": ["@eslint-community/eslint-utils@https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.9.1.tgz", { "dependencies": { "eslint-visitor-keys": "^3.4.3" } }],
+
+    "@eslint-community/regexpp": ["@eslint-community/regexpp@https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.12.2.tgz", {}],
+
+    "@eslint/config-array": ["@eslint/config-array@https://registry.npmjs.org/@eslint/config-array/-/config-array-0.23.2.tgz", { "dependencies": { "@eslint/object-schema": "^3.0.2", "debug": "^4.3.1", "minimatch": "^10.2.1" } }],
+
+    "@eslint/config-helpers": ["@eslint/config-helpers@https://registry.npmjs.org/@eslint/config-helpers/-/config-helpers-0.5.2.tgz", { "dependencies": { "@eslint/core": "^1.1.0" } }],
+
+    "@eslint/core": ["@eslint/core@https://registry.npmjs.org/@eslint/core/-/core-1.1.0.tgz", { "dependencies": { "@types/json-schema": "^7.0.15" } }],
+
+    "@eslint/object-schema": ["@eslint/object-schema@https://registry.npmjs.org/@eslint/object-schema/-/object-schema-3.0.2.tgz", {}],
+
+    "@eslint/plugin-kit": ["@eslint/plugin-kit@https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.6.0.tgz", { "dependencies": { "@eslint/core": "^1.1.0", "levn": "^0.4.1" } }],
+
+    "@grammyjs/types": ["@grammyjs/types@https://registry.npmjs.org/@grammyjs/types/-/types-3.24.0.tgz", {}],
+
+    "@humanfs/core": ["@humanfs/core@https://registry.npmjs.org/@humanfs/core/-/core-0.19.1.tgz", {}],
+
+    "@humanfs/node": ["@humanfs/node@https://registry.npmjs.org/@humanfs/node/-/node-0.16.7.tgz", { "dependencies": { "@humanfs/core": "^0.19.1", "@humanwhocodes/retry": "^0.4.0" } }],
+
+    "@humanwhocodes/module-importer": ["@humanwhocodes/module-importer@https://registry.npmjs.org/@humanwhocodes/module-importer/-/module-importer-1.0.1.tgz", {}],
+
+    "@humanwhocodes/retry": ["@humanwhocodes/retry@https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.4.3.tgz", {}],
+
+    "@isaacs/cliui": ["@isaacs/cliui@https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz", { "dependencies": { "string-width": "^5.1.2", "string-width-cjs": "npm:string-width@^4.2.0", "strip-ansi": "^7.0.1", "strip-ansi-cjs": "npm:strip-ansi@^6.0.1", "wrap-ansi": "^8.1.0", "wrap-ansi-cjs": "npm:wrap-ansi@^7.0.0" } }],
+
+    "@isaacs/fs-minipass": ["@isaacs/fs-minipass@https://registry.npmjs.org/@isaacs/fs-minipass/-/fs-minipass-4.0.1.tgz", { "dependencies": { "minipass": "^7.0.4" } }],
+
+    "@keyv/serialize": ["@keyv/serialize@https://registry.npmjs.org/@keyv/serialize/-/serialize-1.1.1.tgz", {}],
+
+    "@mapbox/node-pre-gyp": ["@mapbox/node-pre-gyp@https://registry.npmjs.org/@mapbox/node-pre-gyp/-/node-pre-gyp-2.0.3.tgz", { "dependencies": { "consola": "^3.2.3", "detect-libc": "^2.0.0", "https-proxy-agent": "^7.0.5", "node-fetch": "^2.6.7", "nopt": "^8.0.0", "semver": "^7.5.3", "tar": "^7.4.0" } }],
+
+    "@nodelib/fs.scandir": ["@nodelib/fs.scandir@https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }],
+
+    "@nodelib/fs.stat": ["@nodelib/fs.stat@https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz", {}],
+
+    "@nodelib/fs.walk": ["@nodelib/fs.walk@https://registry.npmjs.org/@nodelib/fs.walk/-/fs.walk-1.2.8.tgz", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }],
+
+    "@pinojs/redact": ["@pinojs/redact@https://registry.npmjs.org/@pinojs/redact/-/redact-0.4.0.tgz", {}],
+
+    "@pkgjs/parseargs": ["@pkgjs/parseargs@https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz", {}],
+
+    "@rollup/pluginutils": ["@rollup/pluginutils@https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.3.0.tgz", { "dependencies": { "@types/estree": "^1.0.0", "estree-walker": "^2.0.2", "picomatch": "^4.0.2" } }],
+
+    "@sec-ant/readable-stream": ["@sec-ant/readable-stream@https://registry.npmjs.org/@sec-ant/readable-stream/-/readable-stream-0.4.1.tgz", {}],
+
+    "@sindresorhus/is": ["@sindresorhus/is@https://registry.npmjs.org/@sindresorhus/is/-/is-7.2.0.tgz", {}],
+
+    "@sindresorhus/merge-streams": ["@sindresorhus/merge-streams@https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-4.0.0.tgz", {}],
+
+    "@sindresorhus/tsconfig": ["@sindresorhus/tsconfig@https://registry.npmjs.org/@sindresorhus/tsconfig/-/tsconfig-8.1.0.tgz", {}],
+
+    "@types/adm-zip": ["@types/adm-zip@https://registry.npmjs.org/@types/adm-zip/-/adm-zip-0.5.7.tgz", { "dependencies": { "@types/node": "*" } }],
+
+    "@types/archiver": ["@types/archiver@https://registry.npmjs.org/@types/archiver/-/archiver-7.0.0.tgz", { "dependencies": { "@types/readdir-glob": "*" } }],
+
+    "@types/better-sqlite3": ["@types/better-sqlite3@7.6.13", "", { "dependencies": { "@types/node": "*" } }, "sha512-NMv9ASNARoKksWtsq/SHakpYAYnhBrQgGD8zkLYk/jaK8jUGn08CfEdTRgYhMypUQAfzSP8W6gNLe0q19/t4VA=="],
+
+    "@types/body-parser": ["@types/body-parser@https://registry.npmjs.org/@types/body-parser/-/body-parser-1.19.6.tgz", { "dependencies": { "@types/connect": "*", "@types/node": "*" } }],
+
+    "@types/connect": ["@types/connect@https://registry.npmjs.org/@types/connect/-/connect-3.4.38.tgz", { "dependencies": { "@types/node": "*" } }],
+
+    "@types/cors": ["@types/cors@https://registry.npmjs.org/@types/cors/-/cors-2.8.19.tgz", { "dependencies": { "@types/node": "*" } }],
+
+    "@types/esrecurse": ["@types/esrecurse@https://registry.npmjs.org/@types/esrecurse/-/esrecurse-4.3.1.tgz", {}],
+
+    "@types/estree": ["@types/estree@https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz", {}],
+
+    "@types/express": ["@types/express@https://registry.npmjs.org/@types/express/-/express-5.0.6.tgz", { "dependencies": { "@types/body-parser": "*", "@types/express-serve-static-core": "^5.0.0", "@types/serve-static": "^2" } }],
+
+    "@types/express-serve-static-core": ["@types/express-serve-static-core@https://registry.npmjs.org/@types/express-serve-static-core/-/express-serve-static-core-5.1.1.tgz", { "dependencies": { "@types/node": "*", "@types/qs": "*", "@types/range-parser": "*", "@types/send": "*" } }],
+
+    "@types/html-escaper": ["@types/html-escaper@https://registry.npmjs.org/@types/html-escaper/-/html-escaper-3.0.4.tgz", {}],
+
+    "@types/http-cache-semantics": ["@types/http-cache-semantics@https://registry.npmjs.org/@types/http-cache-semantics/-/http-cache-semantics-4.2.0.tgz", {}],
+
+    "@types/http-errors": ["@types/http-errors@https://registry.npmjs.org/@types/http-errors/-/http-errors-2.0.5.tgz", {}],
+
+    "@types/i18n": ["@types/i18n@https://registry.npmjs.org/@types/i18n/-/i18n-0.13.12.tgz", {}],
+
+    "@types/json-schema": ["@types/json-schema@https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz", {}],
+
+    "@types/node": ["@types/node@https://registry.npmjs.org/@types/node/-/node-25.3.0.tgz", { "dependencies": { "undici-types": "~7.18.0" } }],
+
+    "@types/qs": ["@types/qs@https://registry.npmjs.org/@types/qs/-/qs-6.14.0.tgz", {}],
+
+    "@types/range-parser": ["@types/range-parser@https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.7.tgz", {}],
+
+    "@types/readdir-glob": ["@types/readdir-glob@https://registry.npmjs.org/@types/readdir-glob/-/readdir-glob-1.1.5.tgz", { "dependencies": { "@types/node": "*" } }],
+
+    "@types/send": ["@types/send@https://registry.npmjs.org/@types/send/-/send-1.2.1.tgz", { "dependencies": { "@types/node": "*" } }],
+
+    "@types/serve-static": ["@types/serve-static@https://registry.npmjs.org/@types/serve-static/-/serve-static-2.2.0.tgz", { "dependencies": { "@types/http-errors": "*", "@types/node": "*" } }],
+
+    "@types/tough-cookie": ["@types/tough-cookie@https://registry.npmjs.org/@types/tough-cookie/-/tough-cookie-4.0.5.tgz", {}],
+
+    "@typescript-eslint/eslint-plugin": ["@typescript-eslint/eslint-plugin@https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.56.0.tgz", { "dependencies": { "@eslint-community/regexpp": "^4.12.2", "@typescript-eslint/scope-manager": "8.56.0", "@typescript-eslint/type-utils": "8.56.0", "@typescript-eslint/utils": "8.56.0", "@typescript-eslint/visitor-keys": "8.56.0", "ignore": "^7.0.5", "natural-compare": "^1.4.0", "ts-api-utils": "^2.4.0" } }],
+
+    "@typescript-eslint/parser": ["@typescript-eslint/parser@https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.56.0.tgz", { "dependencies": { "@typescript-eslint/scope-manager": "8.56.0", "@typescript-eslint/types": "8.56.0", "@typescript-eslint/typescript-estree": "8.56.0", "@typescript-eslint/visitor-keys": "8.56.0", "debug": "^4.4.3" } }],
+
+    "@typescript-eslint/project-service": ["@typescript-eslint/project-service@https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.56.0.tgz", { "dependencies": { "@typescript-eslint/tsconfig-utils": "^8.56.0", "@typescript-eslint/types": "^8.56.0", "debug": "^4.4.3" } }],
+
+    "@typescript-eslint/scope-manager": ["@typescript-eslint/scope-manager@https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.56.0.tgz", { "dependencies": { "@typescript-eslint/types": "8.56.0", "@typescript-eslint/visitor-keys": "8.56.0" } }],
+
+    "@typescript-eslint/tsconfig-utils": ["@typescript-eslint/tsconfig-utils@https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.56.0.tgz", {}],
+
+    "@typescript-eslint/type-utils": ["@typescript-eslint/type-utils@https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.56.0.tgz", { "dependencies": { "@typescript-eslint/types": "8.56.0", "@typescript-eslint/typescript-estree": "8.56.0", "@typescript-eslint/utils": "8.56.0", "debug": "^4.4.3", "ts-api-utils": "^2.4.0" } }],
+
+    "@typescript-eslint/types": ["@typescript-eslint/types@https://registry.npmjs.org/@typescript-eslint/types/-/types-8.56.0.tgz", {}],
+
+    "@typescript-eslint/typescript-estree": ["@typescript-eslint/typescript-estree@https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.56.0.tgz", { "dependencies": { "@typescript-eslint/project-service": "8.56.0", "@typescript-eslint/tsconfig-utils": "8.56.0", "@typescript-eslint/types": "8.56.0", "@typescript-eslint/visitor-keys": "8.56.0", "debug": "^4.4.3", "minimatch": "^9.0.5", "semver": "^7.7.3", "tinyglobby": "^0.2.15", "ts-api-utils": "^2.4.0" } }],
+
+    "@typescript-eslint/utils": ["@typescript-eslint/utils@https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.56.0.tgz", { "dependencies": { "@eslint-community/eslint-utils": "^4.9.1", "@typescript-eslint/scope-manager": "8.56.0", "@typescript-eslint/types": "8.56.0", "@typescript-eslint/typescript-estree": "8.56.0" } }],
+
+    "@typescript-eslint/visitor-keys": ["@typescript-eslint/visitor-keys@https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.56.0.tgz", { "dependencies": { "@typescript-eslint/types": "8.56.0", "eslint-visitor-keys": "^5.0.0" } }],
+
+    "@vercel/nft": ["@vercel/nft@https://registry.npmjs.org/@vercel/nft/-/nft-0.29.4.tgz", { "dependencies": { "@mapbox/node-pre-gyp": "^2.0.0", "@rollup/pluginutils": "^5.1.3", "acorn": "^8.6.0", "acorn-import-attributes": "^1.9.5", "async-sema": "^3.1.1", "bindings": "^1.4.0", "estree-walker": "2.0.2", "glob": "^10.4.5", "graceful-fs": "^4.2.9", "node-gyp-build": "^4.2.2", "picomatch": "^4.0.2", "resolve-from": "^5.0.0" } }],
+
+    "abbrev": ["abbrev@https://registry.npmjs.org/abbrev/-/abbrev-3.0.1.tgz", {}],
+
+    "abort-controller": ["abort-controller@https://registry.npmjs.org/abort-controller/-/abort-controller-3.0.0.tgz", { "dependencies": { "event-target-shim": "^5.0.0" } }],
+
+    "accepts": ["accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz", { "dependencies": { "mime-types": "^3.0.0", "negotiator": "^1.0.0" } }],
+
+    "acorn": ["acorn@https://registry.npmjs.org/acorn/-/acorn-8.16.0.tgz", {}],
+
+    "acorn-import-attributes": ["acorn-import-attributes@https://registry.npmjs.org/acorn-import-attributes/-/acorn-import-attributes-1.9.5.tgz", {}],
+
+    "acorn-jsx": ["acorn-jsx@https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz", {}],
+
+    "acorn-walk": ["acorn-walk@https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.3.5.tgz", { "dependencies": { "acorn": "^8.11.0" } }],
+
+    "adm-zip": ["adm-zip@https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz", {}],
+
+    "agent-base": ["agent-base@https://registry.npmjs.org/agent-base/-/agent-base-7.1.4.tgz", {}],
+
+    "ajv": ["ajv@https://registry.npmjs.org/ajv/-/ajv-6.14.0.tgz", { "dependencies": { "fast-deep-equal": "^3.1.1", "fast-json-stable-stringify": "^2.0.0", "json-schema-traverse": "^0.4.1", "uri-js": "^4.2.2" } }],
+
+    "ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz", {}],
+
+    "ansi-styles": ["ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz", {}],
+
+    "argparse": ["argparse@https://registry.npmjs.org/argparse/-/argparse-1.0.10.tgz", { "dependencies": { "sprintf-js": "~1.0.2" } }],
+
+    "array-find-index": ["array-find-index@https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz", {}],
+
+    "arrgv": ["arrgv@https://registry.npmjs.org/arrgv/-/arrgv-1.0.2.tgz", {}],
+
+    "arrify": ["arrify@https://registry.npmjs.org/arrify/-/arrify-3.0.0.tgz", {}],
+
+    "async-sema": ["async-sema@https://registry.npmjs.org/async-sema/-/async-sema-3.1.1.tgz", {}],
+
+    "atomic-sleep": ["atomic-sleep@https://registry.npmjs.org/atomic-sleep/-/atomic-sleep-1.0.0.tgz", {}],
+
+    "ava": ["ava@https://registry.npmjs.org/ava/-/ava-6.4.1.tgz", { "dependencies": { "@vercel/nft": "^0.29.4", "acorn": "^8.15.0", "acorn-walk": "^8.3.4", "ansi-styles": "^6.2.1", "arrgv": "^1.0.2", "arrify": "^3.0.0", "callsites": "^4.2.0", "cbor": "^10.0.9", "chalk": "^5.4.1", "chunkd": "^2.0.1", "ci-info": "^4.3.0", "ci-parallel-vars": "^1.0.1", "cli-truncate": "^4.0.0", "code-excerpt": "^4.0.0", "common-path-prefix": "^3.0.0", "concordance": "^5.0.4", "currently-unhandled": "^0.4.1", "debug": "^4.4.1", "emittery": "^1.2.0", "figures": "^6.1.0", "globby": "^14.1.0", "ignore-by-default": "^2.1.0", "indent-string": "^5.0.0", "is-plain-object": "^5.0.0", "is-promise": "^4.0.0", "matcher": "^5.0.0", "memoize": "^10.1.0", "ms": "^2.1.3", "p-map": "^7.0.3", "package-config": "^5.0.0", "picomatch": "^4.0.2", "plur": "^5.1.0", "pretty-ms": "^9.2.0", "resolve-cwd": "^3.0.0", "stack-utils": "^2.0.6", "strip-ansi": "^7.1.0", "supertap": "^3.0.1", "temp-dir": "^3.0.0", "write-file-atomic": "^6.0.0", "yargs": "^17.7.2" } }],
+
+    "balanced-match": ["balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-4.0.4.tgz", {}],
+
+    "base64-js": ["base64-js@https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz", {}],
+
+    "better-sqlite3": ["better-sqlite3@https://registry.npmjs.org/better-sqlite3/-/better-sqlite3-12.6.2.tgz", { "dependencies": { "bindings": "^1.5.0", "prebuild-install": "^7.1.1" } }],
+
+    "bindings": ["bindings@https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz", { "dependencies": { "file-uri-to-path": "1.0.0" } }],
+
+    "bl": ["bl@https://registry.npmjs.org/bl/-/bl-4.1.0.tgz", { "dependencies": { "buffer": "^5.5.0", "inherits": "^2.0.4", "readable-stream": "^3.4.0" } }],
+
+    "blueimp-md5": ["blueimp-md5@https://registry.npmjs.org/blueimp-md5/-/blueimp-md5-2.19.0.tgz", {}],
+
+    "body-parser": ["body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.2.tgz", { "dependencies": { "bytes": "^3.1.2", "content-type": "^1.0.5", "debug": "^4.4.3", "http-errors": "^2.0.0", "iconv-lite": "^0.7.0", "on-finished": "^2.4.1", "qs": "^6.14.1", "raw-body": "^3.0.1", "type-is": "^2.0.1" } }],
+
+    "boolbase": ["boolbase@https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz", {}],
+
+    "brace-expansion": ["brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.3.tgz", { "dependencies": { "balanced-match": "^4.0.2" } }],
+
+    "braces": ["braces@https://registry.npmjs.org/braces/-/braces-3.0.3.tgz", { "dependencies": { "fill-range": "^7.1.1" } }],
+
+    "buffer": ["buffer@https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz", { "dependencies": { "base64-js": "^1.3.1", "ieee754": "^1.1.13" } }],
+
+    "byte-counter": ["byte-counter@https://registry.npmjs.org/byte-counter/-/byte-counter-0.1.0.tgz", {}],
+
+    "bytes": ["bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz", {}],
+
+    "cacheable-lookup": ["cacheable-lookup@https://registry.npmjs.org/cacheable-lookup/-/cacheable-lookup-7.0.0.tgz", {}],
+
+    "cacheable-request": ["cacheable-request@https://registry.npmjs.org/cacheable-request/-/cacheable-request-13.0.18.tgz", { "dependencies": { "@types/http-cache-semantics": "^4.0.4", "get-stream": "^9.0.1", "http-cache-semantics": "^4.2.0", "keyv": "^5.5.5", "mimic-response": "^4.0.0", "normalize-url": "^8.1.1", "responselike": "^4.0.2" } }],
+
+    "call-bind-apply-helpers": ["call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz", { "dependencies": { "es-errors": "^1.3.0", "function-bind": "^1.1.2" } }],
+
+    "call-bound": ["call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "get-intrinsic": "^1.3.0" } }],
+
+    "callsites": ["callsites@https://registry.npmjs.org/callsites/-/callsites-4.2.0.tgz", {}],
+
+    "cbor": ["cbor@https://registry.npmjs.org/cbor/-/cbor-10.0.11.tgz", { "dependencies": { "nofilter": "^3.0.2" } }],
+
+    "chalk": ["chalk@https://registry.npmjs.org/chalk/-/chalk-5.6.2.tgz", {}],
+
+    "cheerio": ["cheerio@https://registry.npmjs.org/cheerio/-/cheerio-1.2.0.tgz", { "dependencies": { "cheerio-select": "^2.1.0", "dom-serializer": "^2.0.0", "domhandler": "^5.0.3", "domutils": "^3.2.2", "encoding-sniffer": "^0.2.1", "htmlparser2": "^10.1.0", "parse5": "^7.3.0", "parse5-htmlparser2-tree-adapter": "^7.1.0", "parse5-parser-stream": "^7.1.2", "undici": "^7.19.0", "whatwg-mimetype": "^4.0.0" } }],
+
+    "cheerio-select": ["cheerio-select@https://registry.npmjs.org/cheerio-select/-/cheerio-select-2.1.0.tgz", { "dependencies": { "boolbase": "^1.0.0", "css-select": "^5.1.0", "css-what": "^6.1.0", "domelementtype": "^2.3.0", "domhandler": "^5.0.3", "domutils": "^3.0.1" } }],
+
+    "chownr": ["chownr@https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz", {}],
+
+    "chunkd": ["chunkd@https://registry.npmjs.org/chunkd/-/chunkd-2.0.1.tgz", {}],
+
+    "ci-info": ["ci-info@https://registry.npmjs.org/ci-info/-/ci-info-4.4.0.tgz", {}],
+
+    "ci-parallel-vars": ["ci-parallel-vars@https://registry.npmjs.org/ci-parallel-vars/-/ci-parallel-vars-1.0.1.tgz", {}],
+
+    "cli-truncate": ["cli-truncate@https://registry.npmjs.org/cli-truncate/-/cli-truncate-4.0.0.tgz", { "dependencies": { "slice-ansi": "^5.0.0", "string-width": "^7.0.0" } }],
+
+    "cliui": ["cliui@https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz", { "dependencies": { "string-width": "^4.2.0", "strip-ansi": "^6.0.1", "wrap-ansi": "^7.0.0" } }],
+
+    "code-excerpt": ["code-excerpt@https://registry.npmjs.org/code-excerpt/-/code-excerpt-4.0.0.tgz", { "dependencies": { "convert-to-spaces": "^2.0.1" } }],
+
+    "color-convert": ["color-convert@https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz", { "dependencies": { "color-name": "~1.1.4" } }],
+
+    "color-name": ["color-name@https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz", {}],
+
+    "common-path-prefix": ["common-path-prefix@https://registry.npmjs.org/common-path-prefix/-/common-path-prefix-3.0.0.tgz", {}],
+
+    "concordance": ["concordance@https://registry.npmjs.org/concordance/-/concordance-5.0.4.tgz", { "dependencies": { "date-time": "^3.1.0", "esutils": "^2.0.3", "fast-diff": "^1.2.0", "js-string-escape": "^1.0.1", "lodash": "^4.17.15", "md5-hex": "^3.0.1", "semver": "^7.3.2", "well-known-symbols": "^2.0.0" } }],
+
+    "consola": ["consola@https://registry.npmjs.org/consola/-/consola-3.4.2.tgz", {}],
+
+    "content-disposition": ["content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz", {}],
+
+    "content-type": ["content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz", {}],
+
+    "convert-to-spaces": ["convert-to-spaces@https://registry.npmjs.org/convert-to-spaces/-/convert-to-spaces-2.0.1.tgz", {}],
+
+    "cookie": ["cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz", {}],
+
+    "cookie-signature": ["cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz", {}],
+
+    "cors": ["cors@https://registry.npmjs.org/cors/-/cors-2.8.6.tgz", { "dependencies": { "object-assign": "^4", "vary": "^1" } }],
+
+    "cross-spawn": ["cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz", { "dependencies": { "path-key": "^3.1.0", "shebang-command": "^2.0.0", "which": "^2.0.1" } }],
+
+    "css-select": ["css-select@https://registry.npmjs.org/css-select/-/css-select-5.2.2.tgz", { "dependencies": { "boolbase": "^1.0.0", "css-what": "^6.1.0", "domhandler": "^5.0.2", "domutils": "^3.0.1", "nth-check": "^2.0.1" } }],
+
+    "css-what": ["css-what@https://registry.npmjs.org/css-what/-/css-what-6.2.2.tgz", {}],
+
+    "currently-unhandled": ["currently-unhandled@https://registry.npmjs.org/currently-unhandled/-/currently-unhandled-0.4.1.tgz", { "dependencies": { "array-find-index": "^1.0.1" } }],
+
+    "date-time": ["date-time@https://registry.npmjs.org/date-time/-/date-time-3.1.0.tgz", { "dependencies": { "time-zone": "^1.0.0" } }],
+
+    "debug": ["debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz", { "dependencies": { "ms": "^2.1.3" } }],
+
+    "decompress-response": ["decompress-response@https://registry.npmjs.org/decompress-response/-/decompress-response-10.0.0.tgz", { "dependencies": { "mimic-response": "^4.0.0" } }],
+
+    "deep-extend": ["deep-extend@https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz", {}],
+
+    "deep-is": ["deep-is@https://registry.npmjs.org/deep-is/-/deep-is-0.1.4.tgz", {}],
+
+    "depd": ["depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz", {}],
+
+    "detect-libc": ["detect-libc@https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz", {}],
+
+    "dom-serializer": ["dom-serializer@https://registry.npmjs.org/dom-serializer/-/dom-serializer-2.0.0.tgz", { "dependencies": { "domelementtype": "^2.3.0", "domhandler": "^5.0.2", "entities": "^4.2.0" } }],
+
+    "domelementtype": ["domelementtype@https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz", {}],
+
+    "domhandler": ["domhandler@https://registry.npmjs.org/domhandler/-/domhandler-5.0.3.tgz", { "dependencies": { "domelementtype": "^2.3.0" } }],
+
+    "domutils": ["domutils@https://registry.npmjs.org/domutils/-/domutils-3.2.2.tgz", { "dependencies": { "dom-serializer": "^2.0.0", "domelementtype": "^2.3.0", "domhandler": "^5.0.3" } }],
+
+    "dotenv": ["dotenv@https://registry.npmjs.org/dotenv/-/dotenv-17.3.1.tgz", {}],
+
+    "drizzle-orm": ["drizzle-orm@https://registry.npmjs.org/drizzle-orm/-/drizzle-orm-0.44.7.tgz", {}],
+
+    "dunder-proto": ["dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.1", "es-errors": "^1.3.0", "gopd": "^1.2.0" } }],
+
+    "eastasianwidth": ["eastasianwidth@https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz", {}],
+
+    "ee-first": ["ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz", {}],
+
+    "emittery": ["emittery@https://registry.npmjs.org/emittery/-/emittery-1.2.0.tgz", {}],
+
+    "emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.6.0.tgz", {}],
+
+    "encodeurl": ["encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz", {}],
+
+    "encoding-sniffer": ["encoding-sniffer@https://registry.npmjs.org/encoding-sniffer/-/encoding-sniffer-0.2.1.tgz", { "dependencies": { "iconv-lite": "^0.6.3", "whatwg-encoding": "^3.1.1" } }],
+
+    "end-of-stream": ["end-of-stream@https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.5.tgz", { "dependencies": { "once": "^1.4.0" } }],
+
+    "entities": ["entities@https://registry.npmjs.org/entities/-/entities-4.5.0.tgz", {}],
+
+    "es-define-property": ["es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz", {}],
+
+    "es-errors": ["es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz", {}],
+
+    "es-object-atoms": ["es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz", { "dependencies": { "es-errors": "^1.3.0" } }],
+
+    "escalade": ["escalade@https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz", {}],
+
+    "escape-html": ["escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz", {}],
+
+    "escape-string-regexp": ["escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz", {}],
+
+    "eslint": ["eslint@https://registry.npmjs.org/eslint/-/eslint-10.0.1.tgz", { "dependencies": { "@eslint-community/eslint-utils": "^4.8.0", "@eslint-community/regexpp": "^4.12.2", "@eslint/config-array": "^0.23.2", "@eslint/config-helpers": "^0.5.2", "@eslint/core": "^1.1.0", "@eslint/plugin-kit": "^0.6.0", "@humanfs/node": "^0.16.6", "@humanwhocodes/module-importer": "^1.0.1", "@humanwhocodes/retry": "^0.4.2", "@types/estree": "^1.0.6", "ajv": "^6.12.4", "cross-spawn": "^7.0.6", "debug": "^4.3.2", "escape-string-regexp": "^4.0.0", "eslint-scope": "^9.1.1", "eslint-visitor-keys": "^5.0.1", "espree": "^11.1.1", "esquery": "^1.7.0", "esutils": "^2.0.2", "fast-deep-equal": "^3.1.3", "file-entry-cache": "^8.0.0", "find-up": "^5.0.0", "glob-parent": "^6.0.2", "ignore": "^5.2.0", "imurmurhash": "^0.1.4", "is-glob": "^4.0.0", "json-stable-stringify-without-jsonify": "^1.0.1", "minimatch": "^10.2.1", "natural-compare": "^1.4.0", "optionator": "^0.9.3" } }],
+
+    "eslint-scope": ["eslint-scope@https://registry.npmjs.org/eslint-scope/-/eslint-scope-9.1.1.tgz", { "dependencies": { "@types/esrecurse": "^4.3.1", "@types/estree": "^1.0.8", "esrecurse": "^4.3.0", "estraverse": "^5.2.0" } }],
+
+    "eslint-visitor-keys": ["eslint-visitor-keys@https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-5.0.1.tgz", {}],
+
+    "espree": ["espree@https://registry.npmjs.org/espree/-/espree-11.1.1.tgz", { "dependencies": { "acorn": "^8.16.0", "acorn-jsx": "^5.3.2", "eslint-visitor-keys": "^5.0.1" } }],
+
+    "esprima": ["esprima@https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz", {}],
+
+    "esquery": ["esquery@https://registry.npmjs.org/esquery/-/esquery-1.7.0.tgz", { "dependencies": { "estraverse": "^5.1.0" } }],
+
+    "esrecurse": ["esrecurse@https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz", { "dependencies": { "estraverse": "^5.2.0" } }],
+
+    "estraverse": ["estraverse@https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz", {}],
+
+    "estree-walker": ["estree-walker@https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz", {}],
+
+    "esutils": ["esutils@https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz", {}],
+
+    "etag": ["etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz", {}],
+
+    "event-target-shim": ["event-target-shim@https://registry.npmjs.org/event-target-shim/-/event-target-shim-5.0.1.tgz", {}],
+
+    "execa": ["execa@https://registry.npmjs.org/execa/-/execa-9.6.1.tgz", { "dependencies": { "@sindresorhus/merge-streams": "^4.0.0", "cross-spawn": "^7.0.6", "figures": "^6.1.0", "get-stream": "^9.0.0", "human-signals": "^8.0.1", "is-plain-obj": "^4.1.0", "is-stream": "^4.0.1", "npm-run-path": "^6.0.0", "pretty-ms": "^9.2.0", "signal-exit": "^4.1.0", "strip-final-newline": "^4.0.0", "yoctocolors": "^2.1.1" } }],
+
+    "expand-template": ["expand-template@https://registry.npmjs.org/expand-template/-/expand-template-2.0.3.tgz", {}],
+
+    "express": ["express@https://registry.npmjs.org/express/-/express-5.2.1.tgz", { "dependencies": { "accepts": "^2.0.0", "body-parser": "^2.2.1", "content-disposition": "^1.0.0", "content-type": "^1.0.5", "cookie": "^0.7.1", "cookie-signature": "^1.2.1", "debug": "^4.4.0", "depd": "^2.0.0", "encodeurl": "^2.0.0", "escape-html": "^1.0.3", "etag": "^1.8.1", "finalhandler": "^2.1.0", "fresh": "^2.0.0", "http-errors": "^2.0.0", "merge-descriptors": "^2.0.0", "mime-types": "^3.0.0", "on-finished": "^2.4.1", "once": "^1.4.0", "parseurl": "^1.3.3", "proxy-addr": "^2.0.7", "qs": "^6.14.0", "range-parser": "^1.2.1", "router": "^2.2.0", "send": "^1.1.0", "serve-static": "^2.2.0", "statuses": "^2.0.1", "type-is": "^2.0.1", "vary": "^1.1.2" } }],
+
+    "fast-deep-equal": ["fast-deep-equal@https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz", {}],
+
+    "fast-diff": ["fast-diff@https://registry.npmjs.org/fast-diff/-/fast-diff-1.3.0.tgz", {}],
+
+    "fast-glob": ["fast-glob@https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz", { "dependencies": { "@nodelib/fs.stat": "^2.0.2", "@nodelib/fs.walk": "^1.2.3", "glob-parent": "^5.1.2", "merge2": "^1.3.0", "micromatch": "^4.0.8" } }],
+
+    "fast-json-stable-stringify": ["fast-json-stable-stringify@https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz", {}],
+
+    "fast-levenshtein": ["fast-levenshtein@https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz", {}],
+
+    "fastq": ["fastq@https://registry.npmjs.org/fastq/-/fastq-1.20.1.tgz", { "dependencies": { "reusify": "^1.0.4" } }],
+
+    "fdir": ["fdir@https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz", {}],
+
+    "figures": ["figures@https://registry.npmjs.org/figures/-/figures-6.1.0.tgz", { "dependencies": { "is-unicode-supported": "^2.0.0" } }],
+
+    "file-entry-cache": ["file-entry-cache@https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-8.0.0.tgz", { "dependencies": { "flat-cache": "^4.0.0" } }],
+
+    "file-uri-to-path": ["file-uri-to-path@https://registry.npmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz", {}],
+
+    "fill-range": ["fill-range@https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz", { "dependencies": { "to-regex-range": "^5.0.1" } }],
+
+    "finalhandler": ["finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.1.tgz", { "dependencies": { "debug": "^4.4.0", "encodeurl": "^2.0.0", "escape-html": "^1.0.3", "on-finished": "^2.4.1", "parseurl": "^1.3.3", "statuses": "^2.0.1" } }],
+
+    "find-up": ["find-up@https://registry.npmjs.org/find-up/-/find-up-5.0.0.tgz", { "dependencies": { "locate-path": "^6.0.0", "path-exists": "^4.0.0" } }],
+
+    "find-up-simple": ["find-up-simple@https://registry.npmjs.org/find-up-simple/-/find-up-simple-1.0.1.tgz", {}],
+
+    "flat-cache": ["flat-cache@https://registry.npmjs.org/flat-cache/-/flat-cache-4.0.1.tgz", { "dependencies": { "flatted": "^3.2.9", "keyv": "^4.5.4" } }],
+
+    "flatted": ["flatted@https://registry.npmjs.org/flatted/-/flatted-3.3.3.tgz", {}],
+
+    "foreground-child": ["foreground-child@https://registry.npmjs.org/foreground-child/-/foreground-child-3.3.1.tgz", { "dependencies": { "cross-spawn": "^7.0.6", "signal-exit": "^4.0.1" } }],
+
+    "form-data-encoder": ["form-data-encoder@https://registry.npmjs.org/form-data-encoder/-/form-data-encoder-4.1.0.tgz", {}],
+
+    "forwarded": ["forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz", {}],
+
+    "fresh": ["fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz", {}],
+
+    "fs-constants": ["fs-constants@https://registry.npmjs.org/fs-constants/-/fs-constants-1.0.0.tgz", {}],
+
+    "function-bind": ["function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz", {}],
+
+    "get-caller-file": ["get-caller-file@https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz", {}],
+
+    "get-east-asian-width": ["get-east-asian-width@https://registry.npmjs.org/get-east-asian-width/-/get-east-asian-width-1.5.0.tgz", {}],
+
+    "get-intrinsic": ["get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "es-define-property": "^1.0.1", "es-errors": "^1.3.0", "es-object-atoms": "^1.1.1", "function-bind": "^1.1.2", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-symbols": "^1.1.0", "hasown": "^2.0.2", "math-intrinsics": "^1.1.0" } }],
+
+    "get-proto": ["get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz", { "dependencies": { "dunder-proto": "^1.0.1", "es-object-atoms": "^1.0.0" } }],
+
+    "get-stream": ["get-stream@https://registry.npmjs.org/get-stream/-/get-stream-9.0.1.tgz", { "dependencies": { "@sec-ant/readable-stream": "^0.4.1", "is-stream": "^4.0.1" } }],
+
+    "github-from-package": ["github-from-package@https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz", {}],
+
+    "glob": ["glob@https://registry.npmjs.org/glob/-/glob-10.5.0.tgz", { "dependencies": { "foreground-child": "^3.1.0", "jackspeak": "^3.1.2", "minimatch": "^9.0.4", "minipass": "^7.1.2", "package-json-from-dist": "^1.0.0", "path-scurry": "^1.11.1" } }],
+
+    "glob-parent": ["glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz", { "dependencies": { "is-glob": "^4.0.3" } }],
+
+    "globby": ["globby@https://registry.npmjs.org/globby/-/globby-14.1.0.tgz", { "dependencies": { "@sindresorhus/merge-streams": "^2.1.0", "fast-glob": "^3.3.3", "ignore": "^7.0.3", "path-type": "^6.0.0", "slash": "^5.1.0", "unicorn-magic": "^0.3.0" } }],
+
+    "gopd": ["gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz", {}],
+
+    "got": ["got@https://registry.npmjs.org/got/-/got-14.6.6.tgz", { "dependencies": { "@sindresorhus/is": "^7.0.1", "byte-counter": "^0.1.0", "cacheable-lookup": "^7.0.0", "cacheable-request": "^13.0.12", "decompress-response": "^10.0.0", "form-data-encoder": "^4.0.2", "http2-wrapper": "^2.2.1", "keyv": "^5.5.3", "lowercase-keys": "^3.0.0", "p-cancelable": "^4.0.1", "responselike": "^4.0.2", "type-fest": "^4.26.1" } }],
+
+    "graceful-fs": ["graceful-fs@https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz", {}],
+
+    "grammy": ["grammy@https://registry.npmjs.org/grammy/-/grammy-1.40.0.tgz", { "dependencies": { "@grammyjs/types": "3.24.0", "abort-controller": "^3.0.0", "debug": "^4.4.3", "node-fetch": "^2.7.0" } }],
+
+    "has-symbols": ["has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz", {}],
+
+    "hasown": ["hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz", { "dependencies": { "function-bind": "^1.1.2" } }],
+
+    "html-escaper": ["html-escaper@https://registry.npmjs.org/html-escaper/-/html-escaper-3.0.3.tgz", {}],
+
+    "htmlparser2": ["htmlparser2@https://registry.npmjs.org/htmlparser2/-/htmlparser2-10.1.0.tgz", { "dependencies": { "domelementtype": "^2.3.0", "domhandler": "^5.0.3", "domutils": "^3.2.2", "entities": "^7.0.1" } }],
+
+    "http-cache-semantics": ["http-cache-semantics@https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.2.0.tgz", {}],
+
+    "http-errors": ["http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz", { "dependencies": { "depd": "~2.0.0", "inherits": "~2.0.4", "setprototypeof": "~1.2.0", "statuses": "~2.0.2", "toidentifier": "~1.0.1" } }],
+
+    "http2-wrapper": ["http2-wrapper@https://registry.npmjs.org/http2-wrapper/-/http2-wrapper-2.2.1.tgz", { "dependencies": { "quick-lru": "^5.1.1", "resolve-alpn": "^1.2.0" } }],
+
+    "https-proxy-agent": ["https-proxy-agent@https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-7.0.6.tgz", { "dependencies": { "agent-base": "^7.1.2", "debug": "4" } }],
+
+    "human-signals": ["human-signals@https://registry.npmjs.org/human-signals/-/human-signals-8.0.1.tgz", {}],
+
+    "i18next": ["i18next@https://registry.npmjs.org/i18next/-/i18next-25.8.13.tgz", { "dependencies": { "@babel/runtime": "^7.28.4" } }],
+
+    "iconv-lite": ["iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz", { "dependencies": { "safer-buffer": ">= 2.1.2 < 3.0.0" } }],
+
+    "ieee754": ["ieee754@https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz", {}],
+
+    "ignore": ["ignore@https://registry.npmjs.org/ignore/-/ignore-7.0.5.tgz", {}],
+
+    "ignore-by-default": ["ignore-by-default@https://registry.npmjs.org/ignore-by-default/-/ignore-by-default-2.1.0.tgz", {}],
+
+    "imurmurhash": ["imurmurhash@https://registry.npmjs.org/imurmurhash/-/imurmurhash-0.1.4.tgz", {}],
+
+    "indent-string": ["indent-string@https://registry.npmjs.org/indent-string/-/indent-string-5.0.0.tgz", {}],
+
+    "inherits": ["inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz", {}],
+
+    "ini": ["ini@https://registry.npmjs.org/ini/-/ini-1.3.8.tgz", {}],
+
+    "ipaddr.js": ["ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz", {}],
+
+    "irregular-plurals": ["irregular-plurals@https://registry.npmjs.org/irregular-plurals/-/irregular-plurals-3.5.0.tgz", {}],
+
+    "is-extglob": ["is-extglob@https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz", {}],
+
+    "is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-4.0.0.tgz", {}],
+
+    "is-glob": ["is-glob@https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz", { "dependencies": { "is-extglob": "^2.1.1" } }],
+
+    "is-number": ["is-number@https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz", {}],
+
+    "is-plain-obj": ["is-plain-obj@https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-4.1.0.tgz", {}],
+
+    "is-plain-object": ["is-plain-object@https://registry.npmjs.org/is-plain-object/-/is-plain-object-5.0.0.tgz", {}],
+
+    "is-promise": ["is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz", {}],
+
+    "is-stream": ["is-stream@https://registry.npmjs.org/is-stream/-/is-stream-4.0.1.tgz", {}],
+
+    "is-unicode-supported": ["is-unicode-supported@https://registry.npmjs.org/is-unicode-supported/-/is-unicode-supported-2.1.0.tgz", {}],
+
+    "isexe": ["isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz", {}],
+
+    "isomorphic-fetch": ["isomorphic-fetch@https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz", { "dependencies": { "node-fetch": "^2.6.1", "whatwg-fetch": "^3.4.1" } }],
+
+    "jackspeak": ["jackspeak@https://registry.npmjs.org/jackspeak/-/jackspeak-3.4.3.tgz", { "dependencies": { "@isaacs/cliui": "^8.0.2" }, "optionalDependencies": { "@pkgjs/parseargs": "^0.11.0" } }],
+
+    "js-string-escape": ["js-string-escape@https://registry.npmjs.org/js-string-escape/-/js-string-escape-1.0.1.tgz", {}],
+
+    "js-yaml": ["js-yaml@https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.2.tgz", { "dependencies": { "argparse": "^1.0.7", "esprima": "^4.0.0" } }],
+
+    "json-buffer": ["json-buffer@https://registry.npmjs.org/json-buffer/-/json-buffer-3.0.1.tgz", {}],
+
+    "json-schema-traverse": ["json-schema-traverse@https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz", {}],
+
+    "json-stable-stringify-without-jsonify": ["json-stable-stringify-without-jsonify@https://registry.npmjs.org/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz", {}],
+
+    "keyv": ["keyv@https://registry.npmjs.org/keyv/-/keyv-5.6.0.tgz", { "dependencies": { "@keyv/serialize": "^1.1.1" } }],
+
+    "levn": ["levn@https://registry.npmjs.org/levn/-/levn-0.4.1.tgz", { "dependencies": { "prelude-ls": "^1.2.1", "type-check": "~0.4.0" } }],
+
+    "load-json-file": ["load-json-file@https://registry.npmjs.org/load-json-file/-/load-json-file-7.0.1.tgz", {}],
+
+    "locate-path": ["locate-path@https://registry.npmjs.org/locate-path/-/locate-path-6.0.0.tgz", { "dependencies": { "p-locate": "^5.0.0" } }],
+
+    "lodash": ["lodash@https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz", {}],
+
+    "lowercase-keys": ["lowercase-keys@https://registry.npmjs.org/lowercase-keys/-/lowercase-keys-3.0.0.tgz", {}],
+
+    "lru-cache": ["lru-cache@https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz", {}],
+
+    "matcher": ["matcher@https://registry.npmjs.org/matcher/-/matcher-5.0.0.tgz", { "dependencies": { "escape-string-regexp": "^5.0.0" } }],
+
+    "math-intrinsics": ["math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz", {}],
+
+    "md5-hex": ["md5-hex@https://registry.npmjs.org/md5-hex/-/md5-hex-3.0.1.tgz", { "dependencies": { "blueimp-md5": "^2.10.0" } }],
+
+    "media-typer": ["media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz", {}],
+
+    "memoize": ["memoize@https://registry.npmjs.org/memoize/-/memoize-10.2.0.tgz", { "dependencies": { "mimic-function": "^5.0.1" } }],
+
+    "merge-descriptors": ["merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz", {}],
+
+    "merge2": ["merge2@https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz", {}],
+
+    "micromatch": ["micromatch@https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz", { "dependencies": { "braces": "^3.0.3", "picomatch": "^2.3.1" } }],
+
+    "mime-db": ["mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz", {}],
+
+    "mime-types": ["mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz", { "dependencies": { "mime-db": "^1.54.0" } }],
+
+    "mimic-function": ["mimic-function@https://registry.npmjs.org/mimic-function/-/mimic-function-5.0.1.tgz", {}],
+
+    "mimic-response": ["mimic-response@https://registry.npmjs.org/mimic-response/-/mimic-response-4.0.0.tgz", {}],
+
+    "minimatch": ["minimatch@https://registry.npmjs.org/minimatch/-/minimatch-10.2.2.tgz", { "dependencies": { "brace-expansion": "^5.0.2" } }],
+
+    "minimist": ["minimist@https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz", {}],
+
+    "minipass": ["minipass@https://registry.npmjs.org/minipass/-/minipass-7.1.3.tgz", {}],
+
+    "minizlib": ["minizlib@https://registry.npmjs.org/minizlib/-/minizlib-3.1.0.tgz", { "dependencies": { "minipass": "^7.1.2" } }],
+
+    "mkdirp-classic": ["mkdirp-classic@https://registry.npmjs.org/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz", {}],
+
+    "ms": ["ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz", {}],
+
+    "napi-build-utils": ["napi-build-utils@https://registry.npmjs.org/napi-build-utils/-/napi-build-utils-2.0.0.tgz", {}],
+
+    "natural-compare": ["natural-compare@https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz", {}],
+
+    "negotiator": ["negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz", {}],
+
+    "node-abi": ["node-abi@https://registry.npmjs.org/node-abi/-/node-abi-3.87.0.tgz", { "dependencies": { "semver": "^7.3.5" } }],
+
+    "node-fetch": ["node-fetch@https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz", { "dependencies": { "whatwg-url": "^5.0.0" } }],
+
+    "node-gyp-build": ["node-gyp-build@https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz", {}],
+
+    "nofilter": ["nofilter@https://registry.npmjs.org/nofilter/-/nofilter-3.1.0.tgz", {}],
+
+    "nopt": ["nopt@https://registry.npmjs.org/nopt/-/nopt-8.1.0.tgz", { "dependencies": { "abbrev": "^3.0.0" } }],
+
+    "normalize-url": ["normalize-url@https://registry.npmjs.org/normalize-url/-/normalize-url-8.1.1.tgz", {}],
+
+    "npm-run-path": ["npm-run-path@https://registry.npmjs.org/npm-run-path/-/npm-run-path-6.0.0.tgz", { "dependencies": { "path-key": "^4.0.0", "unicorn-magic": "^0.3.0" } }],
+
+    "nth-check": ["nth-check@https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz", { "dependencies": { "boolbase": "^1.0.0" } }],
+
+    "object-assign": ["object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz", {}],
+
+    "object-inspect": ["object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz", {}],
+
+    "on-exit-leak-free": ["on-exit-leak-free@https://registry.npmjs.org/on-exit-leak-free/-/on-exit-leak-free-2.1.2.tgz", {}],
+
+    "on-finished": ["on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz", { "dependencies": { "ee-first": "1.1.1" } }],
+
+    "once": ["once@https://registry.npmjs.org/once/-/once-1.4.0.tgz", { "dependencies": { "wrappy": "1" } }],
+
+    "optionator": ["optionator@https://registry.npmjs.org/optionator/-/optionator-0.9.4.tgz", { "dependencies": { "deep-is": "^0.1.3", "fast-levenshtein": "^2.0.6", "levn": "^0.4.1", "prelude-ls": "^1.2.1", "type-check": "^0.4.0", "word-wrap": "^1.2.5" } }],
+
+    "p-cancelable": ["p-cancelable@https://registry.npmjs.org/p-cancelable/-/p-cancelable-4.0.1.tgz", {}],
+
+    "p-limit": ["p-limit@https://registry.npmjs.org/p-limit/-/p-limit-3.1.0.tgz", { "dependencies": { "yocto-queue": "^0.1.0" } }],
+
+    "p-locate": ["p-locate@https://registry.npmjs.org/p-locate/-/p-locate-5.0.0.tgz", { "dependencies": { "p-limit": "^3.0.2" } }],
+
+    "p-map": ["p-map@https://registry.npmjs.org/p-map/-/p-map-7.0.4.tgz", {}],
+
+    "package-config": ["package-config@https://registry.npmjs.org/package-config/-/package-config-5.0.0.tgz", { "dependencies": { "find-up-simple": "^1.0.0", "load-json-file": "^7.0.1" } }],
+
+    "package-json-from-dist": ["package-json-from-dist@https://registry.npmjs.org/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz", {}],
+
+    "parse-ms": ["parse-ms@https://registry.npmjs.org/parse-ms/-/parse-ms-4.0.0.tgz", {}],
+
+    "parse5": ["parse5@https://registry.npmjs.org/parse5/-/parse5-7.3.0.tgz", { "dependencies": { "entities": "^6.0.0" } }],
+
+    "parse5-htmlparser2-tree-adapter": ["parse5-htmlparser2-tree-adapter@https://registry.npmjs.org/parse5-htmlparser2-tree-adapter/-/parse5-htmlparser2-tree-adapter-7.1.0.tgz", { "dependencies": { "domhandler": "^5.0.3", "parse5": "^7.0.0" } }],
+
+    "parse5-parser-stream": ["parse5-parser-stream@https://registry.npmjs.org/parse5-parser-stream/-/parse5-parser-stream-7.1.2.tgz", { "dependencies": { "parse5": "^7.0.0" } }],
+
+    "parseurl": ["parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz", {}],
+
+    "path-exists": ["path-exists@https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz", {}],
+
+    "path-key": ["path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz", {}],
+
+    "path-scurry": ["path-scurry@https://registry.npmjs.org/path-scurry/-/path-scurry-1.11.1.tgz", { "dependencies": { "lru-cache": "^10.2.0", "minipass": "^5.0.0 || ^6.0.2 || ^7.0.0" } }],
+
+    "path-to-regexp": ["path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz", {}],
+
+    "path-type": ["path-type@https://registry.npmjs.org/path-type/-/path-type-6.0.0.tgz", {}],
+
+    "picomatch": ["picomatch@https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz", {}],
+
+    "pino": ["pino@https://registry.npmjs.org/pino/-/pino-10.3.1.tgz", { "dependencies": { "@pinojs/redact": "^0.4.0", "atomic-sleep": "^1.0.0", "on-exit-leak-free": "^2.1.0", "pino-abstract-transport": "^3.0.0", "pino-std-serializers": "^7.0.0", "process-warning": "^5.0.0", "quick-format-unescaped": "^4.0.3", "real-require": "^0.2.0", "safe-stable-stringify": "^2.3.1", "sonic-boom": "^4.0.1", "thread-stream": "^4.0.0" } }],
+
+    "pino-abstract-transport": ["pino-abstract-transport@https://registry.npmjs.org/pino-abstract-transport/-/pino-abstract-transport-3.0.0.tgz", { "dependencies": { "split2": "^4.0.0" } }],
+
+    "pino-std-serializers": ["pino-std-serializers@https://registry.npmjs.org/pino-std-serializers/-/pino-std-serializers-7.1.0.tgz", {}],
+
+    "plur": ["plur@https://registry.npmjs.org/plur/-/plur-5.1.0.tgz", { "dependencies": { "irregular-plurals": "^3.3.0" } }],
+
+    "prebuild-install": ["prebuild-install@https://registry.npmjs.org/prebuild-install/-/prebuild-install-7.1.3.tgz", { "dependencies": { "detect-libc": "^2.0.0", "expand-template": "^2.0.3", "github-from-package": "0.0.0", "minimist": "^1.2.3", "mkdirp-classic": "^0.5.3", "napi-build-utils": "^2.0.0", "node-abi": "^3.3.0", "pump": "^3.0.0", "rc": "^1.2.7", "simple-get": "^4.0.0", "tar-fs": "^2.0.0", "tunnel-agent": "^0.6.0" } }],
+
+    "prelude-ls": ["prelude-ls@https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz", {}],
+
+    "pretty-ms": ["pretty-ms@https://registry.npmjs.org/pretty-ms/-/pretty-ms-9.3.0.tgz", { "dependencies": { "parse-ms": "^4.0.0" } }],
+
+    "process-warning": ["process-warning@https://registry.npmjs.org/process-warning/-/process-warning-5.0.0.tgz", {}],
+
+    "proxy-addr": ["proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz", { "dependencies": { "forwarded": "0.2.0", "ipaddr.js": "1.9.1" } }],
+
+    "pump": ["pump@https://registry.npmjs.org/pump/-/pump-3.0.3.tgz", { "dependencies": { "end-of-stream": "^1.1.0", "once": "^1.3.1" } }],
+
+    "punycode": ["punycode@https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz", {}],
+
+    "qs": ["qs@https://registry.npmjs.org/qs/-/qs-6.15.0.tgz", { "dependencies": { "side-channel": "^1.1.0" } }],
+
+    "queue-microtask": ["queue-microtask@https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz", {}],
+
+    "quick-format-unescaped": ["quick-format-unescaped@https://registry.npmjs.org/quick-format-unescaped/-/quick-format-unescaped-4.0.4.tgz", {}],
+
+    "quick-lru": ["quick-lru@https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz", {}],
+
+    "range-parser": ["range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz", {}],
+
+    "raw-body": ["raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz", { "dependencies": { "bytes": "~3.1.2", "http-errors": "~2.0.1", "iconv-lite": "~0.7.0", "unpipe": "~1.0.0" } }],
+
+    "rc": ["rc@https://registry.npmjs.org/rc/-/rc-1.2.8.tgz", { "dependencies": { "deep-extend": "^0.6.0", "ini": "~1.3.0", "minimist": "^1.2.0", "strip-json-comments": "~2.0.1" } }],
+
+    "readable-stream": ["readable-stream@https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz", { "dependencies": { "inherits": "^2.0.3", "string_decoder": "^1.1.1", "util-deprecate": "^1.0.1" } }],
+
+    "real-require": ["real-require@https://registry.npmjs.org/real-require/-/real-require-0.2.0.tgz", {}],
+
+    "require-directory": ["require-directory@https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz", {}],
+
+    "resolve-alpn": ["resolve-alpn@https://registry.npmjs.org/resolve-alpn/-/resolve-alpn-1.2.1.tgz", {}],
+
+    "resolve-cwd": ["resolve-cwd@https://registry.npmjs.org/resolve-cwd/-/resolve-cwd-3.0.0.tgz", { "dependencies": { "resolve-from": "^5.0.0" } }],
+
+    "resolve-from": ["resolve-from@https://registry.npmjs.org/resolve-from/-/resolve-from-5.0.0.tgz", {}],
+
+    "responselike": ["responselike@https://registry.npmjs.org/responselike/-/responselike-4.0.2.tgz", { "dependencies": { "lowercase-keys": "^3.0.0" } }],
+
+    "reusify": ["reusify@https://registry.npmjs.org/reusify/-/reusify-1.1.0.tgz", {}],
+
+    "router": ["router@https://registry.npmjs.org/router/-/router-2.2.0.tgz", { "dependencies": { "debug": "^4.4.0", "depd": "^2.0.0", "is-promise": "^4.0.0", "parseurl": "^1.3.3", "path-to-regexp": "^8.0.0" } }],
+
+    "run-parallel": ["run-parallel@https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz", { "dependencies": { "queue-microtask": "^1.2.2" } }],
+
+    "safe-buffer": ["safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz", {}],
+
+    "safe-stable-stringify": ["safe-stable-stringify@https://registry.npmjs.org/safe-stable-stringify/-/safe-stable-stringify-2.5.0.tgz", {}],
+
+    "safer-buffer": ["safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz", {}],
+
+    "semver": ["semver@https://registry.npmjs.org/semver/-/semver-7.7.4.tgz", {}],
+
+    "send": ["send@https://registry.npmjs.org/send/-/send-1.2.1.tgz", { "dependencies": { "debug": "^4.4.3", "encodeurl": "^2.0.0", "escape-html": "^1.0.3", "etag": "^1.8.1", "fresh": "^2.0.0", "http-errors": "^2.0.1", "mime-types": "^3.0.2", "ms": "^2.1.3", "on-finished": "^2.4.1", "range-parser": "^1.2.1", "statuses": "^2.0.2" } }],
+
+    "serialize-error": ["serialize-error@https://registry.npmjs.org/serialize-error/-/serialize-error-7.0.1.tgz", { "dependencies": { "type-fest": "^0.13.1" } }],
+
+    "serve-static": ["serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.1.tgz", { "dependencies": { "encodeurl": "^2.0.0", "escape-html": "^1.0.3", "parseurl": "^1.3.3", "send": "^1.2.0" } }],
+
+    "setprototypeof": ["setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz", {}],
+
+    "shebang-command": ["shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz", { "dependencies": { "shebang-regex": "^3.0.0" } }],
+
+    "shebang-regex": ["shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz", {}],
+
+    "side-channel": ["side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz", { "dependencies": { "es-errors": "^1.3.0", "object-inspect": "^1.13.3", "side-channel-list": "^1.0.0", "side-channel-map": "^1.0.1", "side-channel-weakmap": "^1.0.2" } }],
+
+    "side-channel-list": ["side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz", { "dependencies": { "es-errors": "^1.3.0", "object-inspect": "^1.13.3" } }],
+
+    "side-channel-map": ["side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz", { "dependencies": { "call-bound": "^1.0.2", "es-errors": "^1.3.0", "get-intrinsic": "^1.2.5", "object-inspect": "^1.13.3" } }],
+
+    "side-channel-weakmap": ["side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz", { "dependencies": { "call-bound": "^1.0.2", "es-errors": "^1.3.0", "get-intrinsic": "^1.2.5", "object-inspect": "^1.13.3", "side-channel-map": "^1.0.1" } }],
+
+    "signal-exit": ["signal-exit@https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz", {}],
+
+    "simple-concat": ["simple-concat@https://registry.npmjs.org/simple-concat/-/simple-concat-1.0.1.tgz", {}],
+
+    "simple-get": ["simple-get@https://registry.npmjs.org/simple-get/-/simple-get-4.0.1.tgz", { "dependencies": { "decompress-response": "^6.0.0", "once": "^1.3.1", "simple-concat": "^1.0.0" } }],
+
+    "slash": ["slash@https://registry.npmjs.org/slash/-/slash-5.1.0.tgz", {}],
+
+    "slice-ansi": ["slice-ansi@https://registry.npmjs.org/slice-ansi/-/slice-ansi-5.0.0.tgz", { "dependencies": { "ansi-styles": "^6.0.0", "is-fullwidth-code-point": "^4.0.0" } }],
+
+    "sonic-boom": ["sonic-boom@https://registry.npmjs.org/sonic-boom/-/sonic-boom-4.2.1.tgz", { "dependencies": { "atomic-sleep": "^1.0.0" } }],
+
+    "split2": ["split2@https://registry.npmjs.org/split2/-/split2-4.2.0.tgz", {}],
+
+    "sprintf-js": ["sprintf-js@https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz", {}],
+
+    "stack-utils": ["stack-utils@https://registry.npmjs.org/stack-utils/-/stack-utils-2.0.6.tgz", { "dependencies": { "escape-string-regexp": "^2.0.0" } }],
+
+    "statuses": ["statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz", {}],
+
+    "string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz", { "dependencies": { "emoji-regex": "^10.3.0", "get-east-asian-width": "^1.0.0", "strip-ansi": "^7.1.0" } }],
+
+    "string-width-cjs": ["string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }],
+
+    "string_decoder": ["string_decoder@https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz", { "dependencies": { "safe-buffer": "~5.2.0" } }],
+
+    "strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.2.tgz", { "dependencies": { "ansi-regex": "^6.0.1" } }],
+
+    "strip-ansi-cjs": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "strip-final-newline": ["strip-final-newline@https://registry.npmjs.org/strip-final-newline/-/strip-final-newline-4.0.0.tgz", {}],
+
+    "strip-json-comments": ["strip-json-comments@https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz", {}],
+
+    "supertap": ["supertap@https://registry.npmjs.org/supertap/-/supertap-3.0.1.tgz", { "dependencies": { "indent-string": "^5.0.0", "js-yaml": "^3.14.1", "serialize-error": "^7.0.1", "strip-ansi": "^7.0.1" } }],
+
+    "tar": ["tar@https://registry.npmjs.org/tar/-/tar-7.5.9.tgz", { "dependencies": { "@isaacs/fs-minipass": "^4.0.0", "chownr": "^3.0.0", "minipass": "^7.1.2", "minizlib": "^3.1.0", "yallist": "^5.0.0" } }],
+
+    "tar-fs": ["tar-fs@https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.4.tgz", { "dependencies": { "chownr": "^1.1.1", "mkdirp-classic": "^0.5.2", "pump": "^3.0.0", "tar-stream": "^2.1.4" } }],
+
+    "tar-stream": ["tar-stream@https://registry.npmjs.org/tar-stream/-/tar-stream-2.2.0.tgz", { "dependencies": { "bl": "^4.0.3", "end-of-stream": "^1.4.1", "fs-constants": "^1.0.0", "inherits": "^2.0.3", "readable-stream": "^3.1.1" } }],
+
+    "temp-dir": ["temp-dir@https://registry.npmjs.org/temp-dir/-/temp-dir-3.0.0.tgz", {}],
+
+    "thread-stream": ["thread-stream@https://registry.npmjs.org/thread-stream/-/thread-stream-4.0.0.tgz", { "dependencies": { "real-require": "^0.2.0" } }],
+
+    "time-zone": ["time-zone@https://registry.npmjs.org/time-zone/-/time-zone-1.0.0.tgz", {}],
+
+    "tinyglobby": ["tinyglobby@https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.15.tgz", { "dependencies": { "fdir": "^6.5.0", "picomatch": "^4.0.3" } }],
+
+    "tldts": ["tldts@https://registry.npmjs.org/tldts/-/tldts-7.0.23.tgz", { "dependencies": { "tldts-core": "^7.0.23" } }],
+
+    "tldts-core": ["tldts-core@https://registry.npmjs.org/tldts-core/-/tldts-core-7.0.23.tgz", {}],
+
+    "to-regex-range": ["to-regex-range@https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz", { "dependencies": { "is-number": "^7.0.0" } }],
+
+    "toidentifier": ["toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz", {}],
+
+    "tough-cookie": ["tough-cookie@https://registry.npmjs.org/tough-cookie/-/tough-cookie-6.0.0.tgz", { "dependencies": { "tldts": "^7.0.5" } }],
+
+    "tr46": ["tr46@https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz", {}],
+
+    "ts-api-utils": ["ts-api-utils@https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.4.0.tgz", {}],
+
+    "tunnel-agent": ["tunnel-agent@https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz", { "dependencies": { "safe-buffer": "^5.0.1" } }],
+
+    "type-check": ["type-check@https://registry.npmjs.org/type-check/-/type-check-0.4.0.tgz", { "dependencies": { "prelude-ls": "^1.2.1" } }],
+
+    "type-fest": ["type-fest@https://registry.npmjs.org/type-fest/-/type-fest-4.41.0.tgz", {}],
+
+    "type-is": ["type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz", { "dependencies": { "content-type": "^1.0.5", "media-typer": "^1.1.0", "mime-types": "^3.0.0" } }],
+
+    "typescript": ["typescript@https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz", {}],
+
+    "undici": ["undici@https://registry.npmjs.org/undici/-/undici-7.22.0.tgz", {}],
+
+    "undici-types": ["undici-types@https://registry.npmjs.org/undici-types/-/undici-types-7.18.2.tgz", {}],
+
+    "unicorn-magic": ["unicorn-magic@https://registry.npmjs.org/unicorn-magic/-/unicorn-magic-0.3.0.tgz", {}],
+
+    "unpipe": ["unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz", {}],
+
+    "uri-js": ["uri-js@https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz", { "dependencies": { "punycode": "^2.1.0" } }],
+
+    "util-deprecate": ["util-deprecate@https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz", {}],
+
+    "vary": ["vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz", {}],
+
+    "webidl-conversions": ["webidl-conversions@https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz", {}],
+
+    "well-known-symbols": ["well-known-symbols@https://registry.npmjs.org/well-known-symbols/-/well-known-symbols-2.0.0.tgz", {}],
+
+    "whatwg-encoding": ["whatwg-encoding@https://registry.npmjs.org/whatwg-encoding/-/whatwg-encoding-3.1.1.tgz", { "dependencies": { "iconv-lite": "0.6.3" } }],
+
+    "whatwg-fetch": ["whatwg-fetch@https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.6.20.tgz", {}],
+
+    "whatwg-mimetype": ["whatwg-mimetype@https://registry.npmjs.org/whatwg-mimetype/-/whatwg-mimetype-4.0.0.tgz", {}],
+
+    "whatwg-url": ["whatwg-url@https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz", { "dependencies": { "tr46": "~0.0.3", "webidl-conversions": "^3.0.0" } }],
+
+    "which": ["which@https://registry.npmjs.org/which/-/which-2.0.2.tgz", { "dependencies": { "isexe": "^2.0.0" } }],
+
+    "word-wrap": ["word-wrap@https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.5.tgz", {}],
+
+    "wrap-ansi": ["wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz", { "dependencies": { "ansi-styles": "^4.0.0", "string-width": "^4.1.0", "strip-ansi": "^6.0.0" } }],
+
+    "wrap-ansi-cjs": ["wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz", { "dependencies": { "ansi-styles": "^4.0.0", "string-width": "^4.1.0", "strip-ansi": "^6.0.0" } }],
+
+    "wrappy": ["wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz", {}],
+
+    "write-file-atomic": ["write-file-atomic@https://registry.npmjs.org/write-file-atomic/-/write-file-atomic-6.0.0.tgz", { "dependencies": { "imurmurhash": "^0.1.4", "signal-exit": "^4.0.1" } }],
+
+    "y18n": ["y18n@https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz", {}],
+
+    "yallist": ["yallist@https://registry.npmjs.org/yallist/-/yallist-5.0.0.tgz", {}],
+
+    "yargs": ["yargs@https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz", { "dependencies": { "cliui": "^8.0.1", "escalade": "^3.1.1", "get-caller-file": "^2.0.5", "require-directory": "^2.1.1", "string-width": "^4.2.3", "y18n": "^5.0.5", "yargs-parser": "^21.1.1" } }],
+
+    "yargs-parser": ["yargs-parser@https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz", {}],
+
+    "yocto-queue": ["yocto-queue@https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz", {}],
+
+    "yoctocolors": ["yoctocolors@https://registry.npmjs.org/yoctocolors/-/yoctocolors-2.1.2.tgz", {}],
+
+    "@eslint-community/eslint-utils/eslint-visitor-keys": ["eslint-visitor-keys@https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz", {}],
+
+    "@isaacs/cliui/string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz", { "dependencies": { "eastasianwidth": "^0.2.0", "emoji-regex": "^9.2.2", "strip-ansi": "^7.0.1" } }],
+
+    "@isaacs/cliui/wrap-ansi": ["wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz", { "dependencies": { "ansi-styles": "^6.1.0", "string-width": "^5.0.1", "strip-ansi": "^7.0.1" } }],
+
+    "@typescript-eslint/typescript-estree/minimatch": ["minimatch@https://registry.npmjs.org/minimatch/-/minimatch-9.0.6.tgz", { "dependencies": { "brace-expansion": "^5.0.2" } }],
+
+    "body-parser/iconv-lite": ["iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz", { "dependencies": { "safer-buffer": ">= 2.1.2 < 3.0.0" } }],
+
+    "cliui/string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }],
+
+    "cliui/strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "eslint/escape-string-regexp": ["escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz", {}],
+
+    "eslint/ignore": ["ignore@https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz", {}],
+
+    "fast-glob/glob-parent": ["glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz", { "dependencies": { "is-glob": "^4.0.1" } }],
+
+    "flat-cache/keyv": ["keyv@https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz", { "dependencies": { "json-buffer": "3.0.1" } }],
+
+    "glob/minimatch": ["minimatch@https://registry.npmjs.org/minimatch/-/minimatch-9.0.6.tgz", { "dependencies": { "brace-expansion": "^5.0.2" } }],
+
+    "globby/@sindresorhus/merge-streams": ["@sindresorhus/merge-streams@https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz", {}],
+
+    "htmlparser2/entities": ["entities@https://registry.npmjs.org/entities/-/entities-7.0.1.tgz", {}],
+
+    "micromatch/picomatch": ["picomatch@https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz", {}],
+
+    "npm-run-path/path-key": ["path-key@https://registry.npmjs.org/path-key/-/path-key-4.0.0.tgz", {}],
+
+    "parse5/entities": ["entities@https://registry.npmjs.org/entities/-/entities-6.0.1.tgz", {}],
+
+    "raw-body/iconv-lite": ["iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz", { "dependencies": { "safer-buffer": ">= 2.1.2 < 3.0.0" } }],
+
+    "serialize-error/type-fest": ["type-fest@https://registry.npmjs.org/type-fest/-/type-fest-0.13.1.tgz", {}],
+
+    "simple-get/decompress-response": ["decompress-response@https://registry.npmjs.org/decompress-response/-/decompress-response-6.0.0.tgz", { "dependencies": { "mimic-response": "^3.1.0" } }],
+
+    "stack-utils/escape-string-regexp": ["escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz", {}],
+
+    "string-width-cjs/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
+
+    "string-width-cjs/is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}],
+
+    "string-width-cjs/strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "strip-ansi-cjs/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+
+    "tar/chownr": ["chownr@https://registry.npmjs.org/chownr/-/chownr-3.0.0.tgz", {}],
+
+    "wrap-ansi/ansi-styles": ["ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz", { "dependencies": { "color-convert": "^2.0.1" } }],
+
+    "wrap-ansi/string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }],
+
+    "wrap-ansi/strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "wrap-ansi-cjs/ansi-styles": ["ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz", { "dependencies": { "color-convert": "^2.0.1" } }],
+
+    "wrap-ansi-cjs/string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }],
+
+    "wrap-ansi-cjs/strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "yargs/string-width": ["string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }],
+
+    "@isaacs/cliui/string-width/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz", {}],
+
+    "cliui/string-width/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
+
+    "cliui/string-width/is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}],
+
+    "cliui/strip-ansi/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+
+    "simple-get/decompress-response/mimic-response": ["mimic-response@https://registry.npmjs.org/mimic-response/-/mimic-response-3.1.0.tgz", {}],
+
+    "string-width-cjs/strip-ansi/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+
+    "wrap-ansi-cjs/string-width/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
+
+    "wrap-ansi-cjs/string-width/is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}],
+
+    "wrap-ansi-cjs/strip-ansi/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+
+    "wrap-ansi/string-width/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
+
+    "wrap-ansi/string-width/is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}],
+
+    "wrap-ansi/strip-ansi/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+
+    "yargs/string-width/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
+
+    "yargs/string-width/is-fullwidth-code-point": ["is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}],
+
+    "yargs/string-width/strip-ansi": ["strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }],
+
+    "yargs/string-width/strip-ansi/ansi-regex": ["ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz", {}],
+  }
+}

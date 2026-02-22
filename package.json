@@ -1,20 +1,21 @@
 {
   "name": "nhentai-telegram-bot",
   "version": "1.0.0",
-  "description": "A simple Nodejs telegram app built on millions of broken APIs, instantly up and running (not always).",
+  "description": "A simple Bun-powered telegram app built on millions of broken APIs, instantly up and running (not always).",
   "type": "module",
   "exports": "./src/server.js",
   "scripts": {
     "test": "ava",
     "build": "tsc",
-    "start": "node built/src/server",
+    "start": "bun run built/src/server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "tsc && node built/src/server"
+    "preview": "bun run build && bun run built/src/server.js"
   },
   "engines": {
-    "node": ">=14.x"
+    "bun": ">=1.0.0"
   },
+  "packageManager": "bun@1.3.9",
   "repository": {
     "url": "https://github.com/iamdowner/nhentai-telegram-bot"
   },

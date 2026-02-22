@@ -40,6 +40,13 @@
 - Configure a writable path for the SQLite database file (default: `./data/bot.sqlite`)
 - Get bot token from [@BotFather](https://t.me/BotFather)
 
+## Local development (Bun)
+
+```bash
+bun install
+bun run preview
+```
+
 On replit.com you may need to run `npm install node && npm install && npm run build` before starting for the first time
 
 [![Run on replit.com](https://replit.com/badge/github/sleroq/nhentai-telegram-bot)](https://replit.com/github/sleroq/nhentai-telegram-bot)
