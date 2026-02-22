@@ -11,7 +11,7 @@ class Wrap extends Error {
 }
 
 export default class Werror extends Wrap {
-	cause?: Error
+	override cause?: Error
 	constructor(error: unknown, msg?: string) {
 		super(error, msg)
 

@@ -1,12 +1,12 @@
 import { Bot, BotError } from 'grammy'
-import { pino } from 'pino'
+import type { Logger } from 'pino'
 import handleIDs from './cmds/by-ids.js'
 import Werror from '../lib/error.js'
 import search from './search.js'
 import opener from './buttons/open.js'
 import rand from './cmds/rand.js'
 
-export default async function startBot(token: string, logger: pino.Logger) {
+export default async function startBot(token: string, logger: Logger) {
 	const bot = new Bot(token)
 
 	bot.catch((err: BotError) => {
@@ -21,7 +21,9 @@ export default async function startBot(token: string, logger: pino.Logger) {
 
 		return ctx.reply(message, {
 			parse_mode: 'HTML',
-			disable_web_page_preview: true,
+			link_preview_options: {
+				is_disabled: true,
+			},
 			reply_markup: {
 				inline_keyboard: [
 					[

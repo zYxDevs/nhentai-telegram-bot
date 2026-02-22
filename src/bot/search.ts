@@ -14,14 +14,12 @@ composer.on('inline_query', async (ctx) => {
 	}
 
 	if (!Number.isNaN(id)) {
-		let result: InlineQueryResult | undefined
-
 		let doujin
 		try {
 			doujin = await getDoujin(String(id))
 		} catch (err) {
 			if (err instanceof Werror && err.cause instanceof NotFoundError) {
-				result = {
+				const result: InlineQueryResult = {
 					id: '6969696969',
 					type: 'article',
 					title: 'Not found',
@@ -38,8 +36,8 @@ composer.on('inline_query', async (ctx) => {
 			throw new Werror(err, 'Error getting doujin with id: ' + id)
 		}
 
-		result = {
-			id: doujin.id.split('_')[1],
+		const result: InlineQueryResult = {
+			id: doujin.id.split('_')[1] ?? doujin.id,
 			type: 'article',
 			title: doujin.title,
 			description: doujin.description,

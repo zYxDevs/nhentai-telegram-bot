@@ -2,12 +2,12 @@ import getDoujin from '../../lib/get-doujin.js'
 import Werror from '../../lib/error.js'
 import { NotFoundError } from '../../sources/index.js'
 import { Context } from 'grammy'
-import { pino } from 'pino'
+import type { Logger } from 'pino'
 
 export default async function handleIDs<T extends Context>(
 	ids: string[],
 	ctx: T,
-	logger: pino.Logger
+	logger: Logger
 ) {
 	for (const id of ids) {
 		let doujin
