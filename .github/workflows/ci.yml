@@ -9,8 +9,6 @@ on:
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: development
 
     steps:
       - name: Checkout repository
@@ -28,4 +26,4 @@ jobs:
         run: bun run build
 
       - name: Lint
-        run: bun run lint
+        run: bunx eslint .
